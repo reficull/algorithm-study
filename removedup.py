@@ -2,13 +2,13 @@ def removeDup(nums):
     def rmNext(i,nums):
         if i+1 < len(nums)-1  and nums[i] == nums[i+1]:
             del nums[i+1]
-        if i >= len(nums):
+            i = max(i-1,0) 
+        if i+1 >= len(nums):
             return len(nums)
         return rmNext(i+1,nums)
 
     count = len(nums)
-    for i in range(len(nums)):
-        count = rmNext(i,nums)
+    count = rmNext(0,nums)
 
     return count
 
